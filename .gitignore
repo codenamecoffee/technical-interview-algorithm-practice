@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+.vscode/
+.idea/
+
+# Using UV more ahead.
+.venv/
+uv.lock
