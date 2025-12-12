@@ -77,7 +77,7 @@ This helps you track your performance and document feedback for each practice se
 
 <br>
 
-### ⚠️ Note on Multiple Evaluations per Day
+## ⚠️ Note on Multiple Evaluations per Day
 
 If you run multiple challenges on the same day, all attempt files are created in the same dated folder (e.g., `practice/2025_12_12/`).  
 If an exercise is randomly selected more than once in a day, the script will try to overwrite the previous attempt file.  
@@ -90,7 +90,7 @@ If an exercise is randomly selected more than once in a day, the script will try
 
 <br>
 
-### 🗂️ Future Enhancements
+## 🗂️ Future Enhancements
 
 - Add sound notifications using `pygame` for cross-platform compatibility.
 - Automatic test execution and grading after submission.
