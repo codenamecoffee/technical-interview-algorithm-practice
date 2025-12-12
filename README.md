@@ -59,6 +59,44 @@ This workflow helps you practice under realistic constraints, track your daily p
 
 <br>
 
+## 🚦 Interactive Timer & Results File
+
+The `random_challenge/generator.py` script now features an interactive terminal timer:
+
+- **[S]** Submit your solutions early (before time runs out).
+- **[X]** Give up and cancel the assessment (files are not locked).
+- **Robust input handling:** Invalid or unexpected key presses do not break the timer.
+- **5-minute warning:** A notification appears when only 5 minutes remain.
+- **Automatic results file:** At the end of each session, a `results.txt` file is generated in the practice folder, containing:
+  - Date, start/end time (24h and 12h format), and duration.
+  - Completion mode (submit, give up, or timeout).
+  - List of assigned exercises.
+  - Placeholder for corrections and comments.
+
+This helps you track your performance and document feedback for each practice session.
+
+<br>
+
+### ⚠️ Note on Multiple Evaluations per Day
+
+If you run multiple challenges on the same day, all attempt files are created in the same dated folder (e.g., `practice/2025_12_12/`).  
+If an exercise is randomly selected more than once in a day, the script will try to overwrite the previous attempt file.  
+**If that file is set to read-only (from a previous session), generator.py will fail to start the new evaluation.**
+
+**How to avoid this:**
+- Delete or unlock previous attempt files in the day's folder before starting a new session.
+- Rename the folder for each session if you want to keep all attempts.
+- Or, do only one evaluation per day.
+
+<br>
+
+### 🗂️ Future Enhancements
+
+- Add sound notifications using `pygame` for cross-platform compatibility.
+- Automatic test execution and grading after submission.
+
+<br>
+
 ## 📌 Purpose of This Repository
 
 Technical interviews require:

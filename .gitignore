@@ -7,4 +7,3 @@ practice/
 
 # Using UV more ahead.
 .venv/
-uv.lock
