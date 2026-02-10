@@ -66,10 +66,16 @@ def countdown_and_lock_files(files, minutes=60):
         time.sleep(1)
         if remaining == 5 * 60:
             print("\n[WARNING] Only 5 minutes left!")
-    if not evaluation_status["finished"]:
-        evaluation_status["finished"] = True  
-        evaluation_status["mode"] = "timeout"
+
+    # Upon termination for any reason, display message according to the mode
+    if evaluation_status["mode"] == "timeout":
         print("\nTime is up! Setting files to read-only...")
+    elif evaluation_status["mode"] == "deliver":
+        print("\nSubmission complete! Setting files to read-only...")
+    elif evaluation_status["mode"] == "giveup":
+        print("\nAssessment abandoned. Setting files to read-only...")
+
+    # Always set files to read-only.
     for file_path in files:
         os.chmod(file_path, 0o444)
 
@@ -179,7 +185,7 @@ def main():
         key_thread.start()
 
         # Start the timer and lock files after 60 minutes
-        countdown_and_lock_files(created_files, minutes=6)
+        countdown_and_lock_files(created_files, minutes=60)
         end_time = datetime.now()
 
         write_results_file(date_dir, selected_exercises, start_time, end_time, evaluation_status["mode"])
